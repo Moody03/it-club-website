@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Moody03/it-club-website.git/static/css/main.8e7d42e8.css",
+    "main.js": "/Moody03/it-club-website.git/static/js/main.7590b59c.js",
+    "static/js/453.b05cb899.chunk.js": "/Moody03/it-club-website.git/static/js/453.b05cb899.chunk.js",
+    "index.html": "/Moody03/it-club-website.git/index.html",
+    "main.8e7d42e8.css.map": "/Moody03/it-club-website.git/static/css/main.8e7d42e8.css.map",
+    "main.7590b59c.js.map": "/Moody03/it-club-website.git/static/js/main.7590b59c.js.map",
+    "453.b05cb899.chunk.js.map": "/Moody03/it-club-website.git/static/js/453.b05cb899.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8e7d42e8.css",
+    "static/js/main.7590b59c.js"
+  ]
+}
