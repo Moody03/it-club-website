@@ -1,0 +1,146 @@
+/* About Page Styles (Dark Mode) */
+.about {
+    background-color: #181818;  /* Dark background */
+    color: #ddd;  /* Lighter text for contrast */
+    padding: 50px 20px;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.about h1 {
+    font-size: 3rem;
+    font-family: 'Roboto', sans-serif;
+    color: #00bcd4;  /* Accent color */
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-out;
+}
+
+.about p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #bbb;  /* Light text for readability */
+    line-height: 1.6;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    color: #00bcd4;  /* Accent color */
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+/* Team Members */
+.team-members {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 40px;
+    justify-items: center;
+    margin-top: 30px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.team-member {
+    background-color: #262626;  /* Dark card background */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: center;
+    width: 100%;
+    max-width: 350px;
+    position: relative;
+    overflow: hidden;
+    transform: scale(1);
+}
+
+.team-member:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6);
+}
+
+.team-icon {
+    font-size: 4rem;
+    color: #00bcd4;  /* Accent color */
+    margin-bottom: 20px;
+    transition: color 0.3s ease-in-out;
+}
+
+.team-member h3 {
+    font-size: 1.5rem;
+    color: #ddd;  /* Light text color */
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.team-member p {
+    font-size: 1.1rem;
+    color: #bbb;  /* Lighter text */
+}
+
+/* Add profile icons with hover effect */
+.team-socials {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.team-member:hover .team-socials {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Social Icon Styles */
+.team-socials a {
+    color: #00bcd4;  /* Accent color */
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.team-socials a:hover {
+    color: #fff;  /* On hover, make icon white */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .about {
+        padding: 30px 15px;
+    }
+
+    .about h1 {
+        font-size: 2.5rem;
+    }
+
+    .about h2 {
+        font-size: 2rem;
+    }
+
+    .team-members {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .team-members {
+        grid-template-columns: 1fr;
+    }
+
+    .team-member {
+        padding: 20px;
+        width: 80%;
+    }
+}

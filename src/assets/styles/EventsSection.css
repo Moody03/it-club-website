@@ -1,0 +1,127 @@
+/* Events Section Styles */
+.events {
+    background-color: #181818;
+    padding: 50px 20px;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+}
+
+.events h2 {
+    font-size: 2.5rem;
+    color: #00bcd4;
+    margin-bottom: 40px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.events h2 svg {
+    color: #00bcd4;
+    font-size: 2rem;
+}
+
+/* Event Card Styles */
+.event-card {
+    background-color: #262626;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 0.5s forwards; /* Smooth fade-in and slide-up animation */
+}
+
+.event-card h3 {
+    color: #00bcd4;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.event-card p {
+    font-size: 1rem;
+    color: #ddd;
+    margin-bottom: 15px;
+}
+
+.event-card .event-date {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    color: #bbb;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* View All Events Link */
+.view-all-events {
+    display: inline-block;
+    margin-top: 20px;
+    color: #00bcd4;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.view-all-events:hover {
+    color: #0099cc;
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .events h2 {
+        font-size: 2rem;
+    }
+
+    .event-card {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .event-card h3 {
+        font-size: 1.6rem;
+    }
+
+    .event-card p {
+        font-size: 0.9rem;
+    }
+
+    .event-card .event-date {
+        font-size: 1rem;
+    }
+
+    .view-all-events {
+        font-size: 1rem;
+    }
+}
