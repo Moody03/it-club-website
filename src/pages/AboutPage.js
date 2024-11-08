@@ -6,35 +6,11 @@ function AboutPage() {
     const teamMembers = [
         {
             name: 'Mohammad Abukhass',
-            role: 'President',
-            linkedin: 'https://linkedin.com/in/mohammadabukhass',
-            github: 'https://github.com/Mo0od03',
-            portfolio: 'https://johndoe.com',
+            role: 'CEO',
+            linkedin: 'https://www.linkedin.com/in/mohammad-abukhass-1a80b6243/',
+            github: 'https://github.com/Moody03',
+            portfolio: 'https://github.com/Moody03',
             icon: 'fa-laptop-code'
-        },
-        {
-            name: 'Jane Smith',
-            role: 'UI/UX Designer',
-            linkedin: 'https://linkedin.com/in/janesmith',
-            github: 'https://github.com/janesmith',
-            portfolio: 'https://janesmith.com',
-            icon: 'fa-paint-brush'
-        },
-        {
-            name: 'Jane Smith',
-            role: 'UI/UX Designer',
-            linkedin: 'https://linkedin.com/in/janesmith',
-            github: 'https://github.com/janesmith',
-            portfolio: 'https://janesmith.com',
-            icon: 'fa-paint-brush'
-        },
-        {
-            name: 'Jane Smith',
-            role: 'UI/UX Designer',
-            linkedin: 'https://linkedin.com/in/janesmith',
-            github: 'https://github.com/janesmith',
-            portfolio: 'https://janesmith.com',
-            icon: 'fa-paint-brush'
         },
         // Add more team members as needed
     ];

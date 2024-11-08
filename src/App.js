@@ -10,7 +10,7 @@ import './assets/styles/App.css';
 
 function App() {
     return (
-        <Router>
+        <Router basename="/it-club-website">
             <Navbar />
             <Routes>
                 <Route path="/" element={<HomePage />} />
