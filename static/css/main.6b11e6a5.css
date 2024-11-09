@@ -1,0 +1,966 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Hero section styles */
+.hero {
+  text-align: center;
+  padding: 2rem;
+}
+
+.cta-button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.events, .projects {
+  padding: 2rem;
+}
+
+.event-card, .project-card {
+  padding: 1rem;
+  background: #f4f4f4;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+/* Navbar Container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #1c1c1c;
+    color: white;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar Brand */
+.navbar-brand h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #00bcd4;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand h1:hover {
+    color: #0097a7;
+}
+
+/* Navbar Links */
+.navbar-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-link:hover {
+    color: #00bcd4;
+    transform: scale(1.05);
+}
+
+.navbar-link svg {
+    margin-right: 8px;
+    font-size: 1.4rem;
+}
+
+/* Navbar Icons */
+.navbar-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar-icons svg {
+    font-size: 1.5rem;
+    color: white;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.navbar-icons svg:hover {
+    transform: scale(1.2);
+    color: #00bcd4;
+}
+
+/* Animation for smooth scrolling */
+@keyframes slideDown {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.navbar {
+    animation: slideDown 0.6s ease-out;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .navbar-links {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .navbar-icons {
+        display: none;
+    }
+
+    .navbar-link {
+        font-size: 1.3rem;
+    }
+}
+
+/* Hero Section Styles */
+.hero {
+    background: linear-gradient(45deg, #0077b3, #004d66);
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    border-radius: 10px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    animation: fadeIn 1s ease-out;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    animation: fadeIn 1s ease-out;
+}
+
+.cta-button {
+    background-color: #00bcd4;
+    font-size: 1.2rem;
+    padding: 15px 40px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #008b9f;
+}
+
+/* Events Section Styles */
+.events {
+    background-color: #181818;
+    padding: 50px 20px;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+}
+
+.events h2 {
+    font-size: 2.5rem;
+    color: #00bcd4;
+    margin-bottom: 40px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.events h2 svg {
+    color: #00bcd4;
+    font-size: 2rem;
+}
+
+/* Event Card Styles */
+.event-card {
+    background-color: #262626;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 0.5s forwards; /* Smooth fade-in and slide-up animation */
+}
+
+.event-card h3 {
+    color: #00bcd4;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.event-card p {
+    font-size: 1rem;
+    color: #ddd;
+    margin-bottom: 15px;
+}
+
+.event-card .event-date {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    color: #bbb;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* View All Events Link */
+.view-all-events {
+    display: inline-block;
+    margin-top: 20px;
+    color: #00bcd4;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.view-all-events:hover {
+    color: #0099cc;
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .events h2 {
+        font-size: 2rem;
+    }
+
+    .event-card {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .event-card h3 {
+        font-size: 1.6rem;
+    }
+
+    .event-card p {
+        font-size: 0.9rem;
+    }
+
+    .event-card .event-date {
+        font-size: 1rem;
+    }
+
+    .view-all-events {
+        font-size: 1rem;
+    }
+}
+
+/* Projects Section Styles */
+.projects {
+    background-color: #181818;
+    padding: 50px 20px;
+    text-align: center;
+    border-radius: 8px;
+    color: #fff;
+    margin-bottom: 50px;
+}
+
+.projects h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #00bcd4;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Project Cards */
+.project-card {
+    background-color: #262626;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.project-card h3 {
+    color: #00bcd4;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.project-card p {
+    font-size: 1rem;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+.project-card a {
+    color: #00bcd4;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.project-card a:hover {
+    color: #0099cc;
+    text-decoration: underline;
+}
+
+/* Project Icons */
+.project-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.project-icons svg {
+    color: #00bcd4;
+    transition: transform 0.3s ease;
+    font-size: 2rem;
+}
+
+.project-icons svg:hover {
+    transform: scale(1.2);
+}
+
+.project-card .live-test-link {
+    color: #f39c12;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-left: 10px; /* Add spacing between links */
+    transition: color 0.3s ease;
+}
+
+.project-card .live-test-link:hover {
+    color: #e67e22;
+    text-decoration: underline;
+}
+
+
+/* Join Us Section Styles */
+.join-us {
+    background-color: #0099cc;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.join-us h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.join-us p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.join-button {
+    background-color: #f39c12;
+    color: white;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.join-button:hover {
+    background-color: #e67e22;
+}
+
+/* News Section Styles */
+.news {
+    background-color: #181818;
+    padding: 50px 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 50px;
+}
+
+.news h2 {
+    font-size: 2.5rem;
+    color: #00bcd4;
+    margin-bottom: 40px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.news h2 svg {
+    color: #00bcd4;
+    font-size: 2rem;
+}
+
+/* News Card Styles */
+.news-card {
+    background-color: #262626;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.news-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.news-card h3 {
+    color: #00bcd4;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.news-card h3 svg {
+    color: #00bcd4;
+    font-size: 1.5rem;
+}
+
+.news-card p {
+    font-size: 1rem;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+.news-card a {
+    color: #00bcd4;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.news-card a:hover {
+    color: #0099cc;
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .news h2 {
+        font-size: 2rem;
+    }
+
+    .news-card {
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+
+    .news-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .news-card p {
+        font-size: 0.9rem;
+    }
+
+    .news-card a {
+        font-size: 1rem;
+    }
+}
+
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+/* Clean layout with smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+section {
+    padding: 50px 20px;
+    margin-bottom: 50px;
+}
+
+h1, h2, h3 {
+    font-family: 'Roboto', sans-serif;
+    color: #f0f0f0;
+}
+
+button {
+    background-color: #0099cc;
+    color: white;
+    padding: 12px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0077b3;
+}
+
+.home-page {
+    background-color: #121212;
+}
+
+.cta-button, .join-button {
+    font-weight: bold;
+}
+
+/* Smooth animations for scroll */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.hero, .events, .projects, .news, .join-us {
+    animation: fadeIn 1s ease-out;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.hero {
+    background: #003366;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero .cta-button {
+    background-color: #0099cc;
+    padding: 15px 40px;
+    font-size: 18px;
+}
+
+h3 {
+    color: #0099cc;
+}
+
+/* Card Hover Animation */
+.project-card, .event-card, .news-card {
+    background-color: #1f1f1f;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover, .event-card:hover, .news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+a {
+    color: #0099cc;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Specific Section Styles */
+.events h2, .projects h2, .news h2, .join-us h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.projects .project-card, .events .event-card, .news .news-card {
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .cta-button, .join-button {
+        padding: 10px 20px;
+    }
+}
+
+/* About Page Styles (Dark Mode) */
+.about {
+    background-color: #181818;  /* Dark background */
+    color: #ddd;  /* Lighter text for contrast */
+    padding: 50px 20px;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.about h1 {
+    font-size: 3rem;
+    font-family: 'Roboto', sans-serif;
+    color: #00bcd4;  /* Accent color */
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-out;
+}
+
+.about p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #bbb;  /* Light text for readability */
+    line-height: 1.6;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    color: #00bcd4;  /* Accent color */
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+/* Team Members */
+.team-members {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-gap: 40px;
+    gap: 40px;
+    justify-items: center;
+    margin-top: 30px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.team-member {
+    background-color: #262626;  /* Dark card background */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: center;
+    width: 100%;
+    max-width: 350px;
+    position: relative;
+    overflow: hidden;
+    transform: scale(1);
+}
+
+.team-member:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6);
+}
+
+.team-icon {
+    font-size: 4rem;
+    color: #00bcd4;  /* Accent color */
+    margin-bottom: 20px;
+    transition: color 0.3s ease-in-out;
+}
+
+.team-member h3 {
+    font-size: 1.5rem;
+    color: #ddd;  /* Light text color */
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.team-member p {
+    font-size: 1.1rem;
+    color: #bbb;  /* Lighter text */
+}
+
+/* Add profile icons with hover effect */
+.team-socials {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.team-member:hover .team-socials {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Social Icon Styles */
+.team-socials a {
+    color: #00bcd4;  /* Accent color */
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.team-socials a:hover {
+    color: #fff;  /* On hover, make icon white */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .about {
+        padding: 30px 15px;
+    }
+
+    .about h1 {
+        font-size: 2.5rem;
+    }
+
+    .about h2 {
+        font-size: 2rem;
+    }
+
+    .team-members {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .team-members {
+        grid-template-columns: 1fr;
+    }
+
+    .team-member {
+        padding: 20px;
+        width: 80%;
+    }
+}
+
+/* src/ContactForm.css */
+:root {
+    --bg-color-dark: #181818;
+    --bg-color-light: #262626;
+    --primary-color: #00bcd4;  /* Accent color */
+    --accent-color: #00796b;   /* Darker accent for hover effects */
+    --text-color-light: #ffffff;
+    --text-color-dark: #bbb;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #181818;
+    background-color: var(--bg-color-dark);
+    border-radius: 12px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    animation: formFadeIn 1s ease-in-out;
+}
+
+/* Add header styles */
+.contact-form h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    color: var(--text-color-light);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+
+.contact-form input,
+.contact-form textarea {
+    padding: 1rem;
+    margin: 0.8rem 0;
+    border: 2px solid #444;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #333;
+    color: #ffffff;
+    color: var(--text-color-light);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #00bcd4;
+    border-color: var(--primary-color);
+    box-shadow: 0px 0px 8px #00bcd4;
+    box-shadow: 0px 0px 8px var(--primary-color);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #ffffff;
+    color: var(--text-color-light);
+    font-weight: 300;
+}
+
+/* Button styles */
+.contact-form button {
+    padding: 1rem;
+    background-color: #00bcd4;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    color: var(--text-color-light);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 1rem;
+}
+
+.contact-form button:hover {
+    background-color: #00796b;
+    background-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+.contact-form button:active {
+    transform: scale(1);
+}
+
+/* Smooth fade-in animation for form */
+@keyframes formFadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Social Media Icons for Contact Page */
+.contact-form .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.contact-form .social-icons a {
+    font-size: 2rem;
+    color: #00bcd4;
+    color: var(--primary-color);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.contact-form .social-icons a:hover {
+    transform: scale(1.2);
+    color: #00796b;
+    color: var(--accent-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 1.5rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .contact-form {
+        width: 90%;
+    }
+}
+
+/* src/App.css or src/Navbar.css */
+
+:root {
+  --primary-color: #1e90ff;
+  /* Vibrant blue for active and hover states */
+  --secondary-color: #23272a;
+  /* Darker shade for background elements */
+  --accent-color: #f39c12;
+  /* Bright color for CTAs */
+  --text-color-light: #ffffff;
+  --text-color-dark: #333333;
+  --bg-color-light: #f4f4f9;
+  --bg-color-dark: #1a1a1a;
+  --transition-duration: 0.3s;
+}
+
+body.dark-theme {
+  background-color: #1a1a1a;
+  background-color: var(--bg-color-dark);
+  color: #ffffff;
+  color: var(--text-color-light);
+}
+
+
+
