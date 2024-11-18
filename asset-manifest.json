@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/it-club-website/static/css/main.6b11e6a5.css",
-    "main.js": "/it-club-website/static/js/main.3b2a866e.js",
+    "main.css": "/it-club-website/static/css/main.d4182625.css",
+    "main.js": "/it-club-website/static/js/main.af61b4ed.js",
     "static/js/453.fb424926.chunk.js": "/it-club-website/static/js/453.fb424926.chunk.js",
     "index.html": "/it-club-website/index.html"
   },
   "entrypoints": [
-    "static/css/main.6b11e6a5.css",
-    "static/js/main.3b2a866e.js"
+    "static/css/main.d4182625.css",
+    "static/js/main.af61b4ed.js"
   ]
 }
