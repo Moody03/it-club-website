@@ -1051,6 +1051,275 @@ a:hover {
     }
 }
 
+/* General Leaderboard Section */
+.leaderboard-section {
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    animation: fadeIn 1s ease-out;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Light Theme */
+.light-theme .leaderboard-section {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.light-theme .leaderboard-card {
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.light-theme .leaderboard-filter select,
+.light-theme .leaderboard-filter input {
+    background-color: #f1f1f1;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+/* Dark Theme */
+.dark-theme .leaderboard-section {
+    background-color: #1e1e1e;
+    color: #ddd;
+}
+
+.dark-theme .leaderboard-card {
+    background-color: #333;
+    color: #ddd;
+}
+
+.dark-theme .leaderboard-filter select,
+.dark-theme .leaderboard-filter input {
+    background-color: #262626;
+    color: #ddd;
+    border: 1px solid #444;
+}
+
+/* Header Styles */
+.leaderboard-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: inherit;
+}
+
+/* Filter Controls */
+.leaderboard-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.leaderboard-filter select,
+.leaderboard-filter input {
+    padding: 12px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    min-width: 180px;
+    box-sizing: border-box;
+}
+
+.leaderboard-filter select:hover,
+.leaderboard-filter input:hover {
+    transform: scale(1.05);
+}
+
+/* Leaderboard Cards */
+.leaderboard-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.leaderboard-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 0.5s forwards;
+    width: 100%;
+    max-width: 600px;
+}
+
+.leaderboard-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.rank {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+
+.rank-range {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap; /* Allow input fields to wrap on smaller screens */
+    justify-content: center; /* Center the fields */
+}
+
+.rank-range input {
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    height: 40px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.rank-range input:focus {
+    border-color: #4d90fe;
+    outline: none;
+    background-color: #ffffff;
+}
+
+.rank-range input::placeholder {
+    color: #888;
+}
+
+.rank-range input[type="number"] { /* Hide arrows in Firefox */
+    -webkit-appearance: none; /* Hide arrows in WebKit browsers (Chrome, Safari) */
+    appearance: none; /* Standard property for hiding the number input arrows */
+}
+
+.rank-range input[type="number"]::-webkit-outer-spin-button,
+.rank-range input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.rank-range .error-message {
+    font-size: 14px;
+    color: red;
+    margin-top: 5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .rank-range {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .rank-range input {
+        width: 100%; /* Make inputs take full width on smaller screens */
+        margin-bottom: 10px; /* Add spacing between inputs */
+    }
+}
+
+@media (max-width: 480px) {
+    .rank-range input {
+        font-size: 14px; /* Reduce font size for very small screens */
+        padding: 10px 12px; /* Adjust padding */
+    }
+}
+
+
+
+.leaderboard-card h3 {
+    font-size: 1.3rem;
+    flex: 1 1;
+    text-align: center;
+    margin: 0;
+}
+
+.leaderboard-card p {
+    font-size: 1.1rem;
+    color: inherit;
+}
+
+/* Reset Filters Button */
+.reset-button {
+    background-color: #ff5c5c;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+.reset-button:hover {
+    background-color: #e04c4c;
+}
+
+.filter-type-select {
+    padding: 12px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    min-width: 180px;
+    box-sizing: border-box;
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .leaderboard-section h2 {
+        font-size: 2rem;
+    }
+
+    .leaderboard-filter select,
+    .leaderboard-filter input {
+        min-width: 140px;
+    }
+
+    .leaderboard-card {
+        padding: 15px;
+    }
+
+    .leaderboard-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .leaderboard-card p {
+        font-size: 0.9rem;
+    }
+}
+
 /* src/App.css or src/Navbar.css */
 
 :root {
