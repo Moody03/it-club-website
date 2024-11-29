@@ -46,6 +46,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
+    gap: 1rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -63,29 +64,70 @@ body {
     color: #0097a7;
 }
 
-/* Navbar Links */
+/* Navbar Links Container */
 .navbar-links {
-    display: flex;
-    gap: 1.5rem;
+    display: flex; /* Keep items in a row */
+    gap: 2rem; /* Add space between links */
+    flex-wrap: nowrap; /* Prevent wrapping to new lines */
+    overflow: visible; /* Ensure text remains visible */
 }
 
+/* Navbar Link */
 .navbar-link {
+    position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
     text-decoration: none;
+    width: 3rem; /* Icon width */
+    height: 3rem; /* Icon height */
+    overflow: hidden; /* Hide text initially */
     color: white;
-    font-size: 1.1rem;
-    transition: color 0.3s ease, transform 0.3s ease;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
+
+
+/* Hidden Text Styling */
+.navbar-link span {
+    position: absolute;
+    left: 4rem; /* Place text outside the icon to the right */
+    white-space: nowrap;
+    font-size: 1rem;
+    color: #00bcd4;
+    letter-spacing: 1px;
+    opacity: 0; /* Initially invisible */
+    transform: translateX(-20px); /* Slide text slightly left */
+    transition: all 0.3s ease;
+    background-color: #1c1c1c; /* Same as navbar background */
+    padding: 0.2rem 0.5rem; /* Add padding around the text */
+    border-radius: 0.3rem; /* Rounded corners for better visibility */
+    z-index: 2; /* Ensure it appears above other elements */
+}
+
+/* Hover Effect */
+.navbar-link:hover span {
+    opacity: 1; /* Make text visible */
+    transform: translateX(0); /* Slide text into position */
+}
+
+/* Icon Hover Effect */
+.navbar-link:hover svg {
+    transform: scale(1.2);
+    color: #00bcd4;
+}
+
 
 .navbar-link:hover {
     color: #00bcd4;
     transform: scale(1.05);
 }
 
+/* Icon Styling */
 .navbar-link svg {
-    margin-right: 8px;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    z-index: 1; /* Ensure icon is above the animated text */
+    transition: transform 0.3s ease;
 }
 
 /* Navbar Icons */
@@ -105,6 +147,18 @@ body {
     color: #00bcd4;
 }
 
+/* Show Navbar */
+.navbar.show {
+    transform: translateY(0); /* Fully visible */
+    opacity: 1;
+}
+
+/* Hide Navbar */
+.navbar.hide {
+    transform: translateY(-100%); /* Move out of view */
+    opacity: 0; /* Fade out */
+}
+
 /* Animation for smooth scrolling */
 @keyframes slideDown {
     0% {
@@ -114,6 +168,16 @@ body {
     100% {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+/* Letter by Letter Animation */
+@keyframes revealText {
+    from {
+        clip-path: inset(0 100% 0 0); /* Hide all letters */
+    }
+    to {
+        clip-path: inset(0 0 0 0); /* Reveal all letters */
     }
 }
 
@@ -137,6 +201,37 @@ body {
         font-size: 1.3rem;
     }
 }
+
+@keyframes slideOutUp {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.navbar.hide {
+    animation: slideOutUp 0.6s ease forwards;
+}
+
+.navbar.show {
+    animation: slideInDown 0.6s ease forwards;
+}
+
 
 /* Hero Section Styles */
 .hero {
@@ -1319,6 +1414,264 @@ a:hover {
         font-size: 0.9rem;
     }
 }
+
+/* General Page Styling */
+.movies-page {
+    padding: 20px;
+    background: #121212;
+    color: #e0e0e0;
+    text-align: center;
+    transition: background-color 1.5s ease; /* Smooth transition for background */
+}
+
+/* Page Title */
+.page-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ff6f61;
+}
+
+/* Top-Rated Section */
+.top-rated {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: all 0.5s ease; /* Smooth animations for scaling */
+}
+
+.top-rated:hover {
+    transform: scale(1.02); /* Subtle hover effect */
+}
+
+.top-rated .top-image {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.top-rated .top-title {
+    font-size: 1.5rem;
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+
+.top-rated .top-description {
+    font-size: 1rem;
+    color: #aaa;
+}
+
+/* Grid Styling */
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    grid-gap: 15px; 
+    gap: 15px;
+    padding: 10px;
+}
+
+/* Card Styling */
+.movie-card {
+    background: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; 
+    max-width: 220px;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Image Styling */
+.movie-image {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    background-color: #333;
+}
+
+
+.movie-actions {
+    display: flex;
+    justify-content: center; /* Horizontally center the buttons */
+    align-items: center; /* Vertically center the buttons */
+    gap: 10px; /* Add spacing between buttons */
+    margin-top: 10px; /* Optional, for spacing above the buttons */
+}
+/* Action Buttons */
+.btn-info {
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-info:hover {
+    background: #d9534f;
+    border-color: #d9534f;
+}
+
+
+/* Rating & Review Modal */
+.modal-overlay {
+    background: rgba(0, 0, 0, 0.75);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #1e1e1e;
+    color: white;
+    padding: 30px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    color: #ff6f61;
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+}
+
+.rating-stars .star-icon {
+    color: #ccc;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.rating-stars .star-icon.filled {
+    color: #ffcc00;
+}
+
+.rating-review-form {
+    margin-top: 20px;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    background: #333;
+    border: none;
+    color: white;
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+button {
+    background-color: #ff6f61;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff5a47;
+}
+
+/* You can define specific styles for the review container */
+.reviews-container {
+    padding: 20px;
+}
+
+/* Review Text Styling */
+.review-text p {
+    color: #333; /* Default color for text (e.g., dark grey) */
+}
+
+/* Styling for reviewerName */
+.review-text p strong {
+    color: #007bff; /* Color for the reviewer name (e.g., blue) */
+}
+
+/* Styling for rating */
+.review-text p:nth-child(2) {
+    color: #ff9900; /* Color for rating (e.g., orange) */
+}
+
+/* Styling for comment */
+.review-text p:nth-child(3) {
+    color: #555; /* Color for comment (e.g., grey) */
+}
+
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.review-navigation button {
+    margin: 10px;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.review-navigation button:hover {
+    background-color: #ff5a47;
+}
+
+.movie-card {
+    margin: 10px;
+    background-color: #333;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.movie-image {
+    width: 100%;
+    border-radius: 8px;
+    height: 200px;
+    object-fit: contain;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .movies-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
 
 /* src/App.css or src/Navbar.css */
 
