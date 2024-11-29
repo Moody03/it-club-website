@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/it-club-website/static/css/main.633de48a.css",
-    "main.js": "/it-club-website/static/js/main.2ccc582b.js",
+    "main.js": "/it-club-website/static/js/main.84f43b8f.js",
     "static/js/453.699b37eb.chunk.js": "/it-club-website/static/js/453.699b37eb.chunk.js",
     "index.html": "/it-club-website/index.html"
   },
   "entrypoints": [
     "static/css/main.633de48a.css",
-    "static/js/main.2ccc582b.js"
+    "static/js/main.84f43b8f.js"
   ]
 }
