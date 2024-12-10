@@ -1,12 +1,13 @@
 {
   "files": {
-    "main.css": "/it-club-website/static/css/main.633de48a.css",
-    "main.js": "/it-club-website/static/js/main.84f43b8f.js",
-    "static/js/453.699b37eb.chunk.js": "/it-club-website/static/js/453.699b37eb.chunk.js",
+    "main.css": "/it-club-website/static/css/main.7b138eb2.css",
+    "main.js": "/it-club-website/static/js/main.0fa13021.js",
+    "static/js/453.fb424926.chunk.js": "/it-club-website/static/js/453.fb424926.chunk.js",
+    "static/media/ITClub.png": "/it-club-website/static/media/ITClub.5d57893c329d3923c229.png",
     "index.html": "/it-club-website/index.html"
   },
   "entrypoints": [
-    "static/css/main.633de48a.css",
-    "static/js/main.84f43b8f.js"
+    "static/css/main.7b138eb2.css",
+    "static/js/main.0fa13021.js"
   ]
 }

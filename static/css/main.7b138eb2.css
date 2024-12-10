@@ -42,13 +42,48 @@ body {
     padding: 1rem 2rem;
     background-color: #1c1c1c;
     color: white;
-    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transition: transfrom 0.4s ease, opacity 0.4s ease, background-color 0.3s ease;
     position: sticky;
     top: 0;
     z-index: 1000;
     gap: 1rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
+
+.navbar-logo {
+    height: 80px;  /* Adjust size as needed */
+    width: auto;
+    transition: transform 0.3s ease, filter 0.3s ease;
+ }
+ 
+ .navbar-logo:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+ }
+ 
+
+.menu-toggle {
+    position: absolute;
+    /* Position it relative to the navbar */
+    top: 2.0rem;
+    /* Adjust the distance from the top */
+    right: 1rem;
+    /* Adjust the distance from the right */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    visibility: hidden;
+    z-index: 2000;
+    /* Ensure it stays on top of other elements */
+}
+
+.menu-toggle.active {
+    transform: rotate(90deg);
+}
+
 
 /* Navbar Brand */
 .navbar-brand h1 {
@@ -66,10 +101,20 @@ body {
 
 /* Navbar Links Container */
 .navbar-links {
-    display: flex; /* Keep items in a row */
-    gap: 2rem; /* Add space between links */
-    flex-wrap: nowrap; /* Prevent wrapping to new lines */
-    overflow: visible; /* Ensure text remains visible */
+    display: flex;
+    /* Keep items in a row */
+    flex-direction: row;
+    gap: 2rem;
+    /* Add space between links */
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+/* Mobile menu hidden initially */
+.navbar-links.open {
+    flex-direction: row;
+    max-height: 100vh;
+    /* Allow dropdown on mobile */
 }
 
 /* Navbar Link */
@@ -79,9 +124,12 @@ body {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    width: 3rem; /* Icon width */
-    height: 3rem; /* Icon height */
-    overflow: hidden; /* Hide text initially */
+    width: 3rem;
+    /* Icon width */
+    height: 3rem;
+    /* Icon height */
+    overflow: hidden;
+    /* Hide text initially */
     color: white;
     font-size: 1.2rem;
     transition: transform 0.3s ease, color 0.3s ease;
@@ -91,24 +139,33 @@ body {
 /* Hidden Text Styling */
 .navbar-link span {
     position: absolute;
-    left: 4rem; /* Place text outside the icon to the right */
+    left: 4rem;
+    /* Place text outside the icon to the right */
     white-space: nowrap;
     font-size: 1rem;
     color: #00bcd4;
     letter-spacing: 1px;
-    opacity: 0; /* Initially invisible */
-    transform: translateX(-20px); /* Slide text slightly left */
+    opacity: 0;
+    /* Initially invisible */
+    transform: translateX(-20px);
+    /* Slide text slightly left */
     transition: all 0.3s ease;
-    background-color: #1c1c1c; /* Same as navbar background */
-    padding: 0.2rem 0.5rem; /* Add padding around the text */
-    border-radius: 0.3rem; /* Rounded corners for better visibility */
-    z-index: 2; /* Ensure it appears above other elements */
+    background-color: #1c1c1c;
+    /* Same as navbar background */
+    padding: 0.2rem 0.5rem;
+    /* Add padding around the text */
+    border-radius: 0.3rem;
+    /* Rounded corners for better visibility */
+    z-index: 2;
+    /* Ensure it appears above other elements */
 }
 
 /* Hover Effect */
 .navbar-link:hover span {
-    opacity: 1; /* Make text visible */
-    transform: translateX(0); /* Slide text into position */
+    opacity: 1;
+    /* Make text visible */
+    transform: translateX(0);
+    /* Slide text into position */
 }
 
 /* Icon Hover Effect */
@@ -126,7 +183,8 @@ body {
 /* Icon Styling */
 .navbar-link svg {
     font-size: 1.5rem;
-    z-index: 1; /* Ensure icon is above the animated text */
+    z-index: 1;
+    /* Ensure icon is above the animated text */
     transition: transform 0.3s ease;
 }
 
@@ -149,14 +207,17 @@ body {
 
 /* Show Navbar */
 .navbar.show {
-    transform: translateY(0); /* Fully visible */
+    transform: translateY(0);
+    /* Fully visible */
     opacity: 1;
 }
 
 /* Hide Navbar */
 .navbar.hide {
-    transform: translateY(-100%); /* Move out of view */
-    opacity: 0; /* Fade out */
+    transform: translateY(-100%);
+    /* Move out of view */
+    opacity: 0;
+    /* Fade out */
 }
 
 /* Animation for smooth scrolling */
@@ -165,6 +226,7 @@ body {
         transform: translateY(-20px);
         opacity: 0;
     }
+
     100% {
         transform: translateY(0);
         opacity: 1;
@@ -174,10 +236,13 @@ body {
 /* Letter by Letter Animation */
 @keyframes revealText {
     from {
-        clip-path: inset(0 100% 0 0); /* Hide all letters */
+        clip-path: inset(0 100% 0 0);
+        /* Hide all letters */
     }
+
     to {
-        clip-path: inset(0 0 0 0); /* Reveal all letters */
+        clip-path: inset(0 0 0 0);
+        /* Reveal all letters */
     }
 }
 
@@ -187,26 +252,48 @@ body {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+
     .navbar-links {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center;
+        flex-direction: row;
+        /* Keep links in a row */
+        justify-content: space-evenly;
+        /* Distribute links evenly */
+        max-height: none;
+        /* Remove height restrictions */
+        visibility: hidden;
+        opacity: 1;
+        width: 100%;
+        /* Make it stretch across the navbar width */
+    }
+
+    .navbar-links.open {
+        max-height: none;
+        /* Allow full display */
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    .menu-toggle {
+        visibility: visible;
     }
 
     .navbar-icons {
         display: none;
     }
 
-    .navbar-link {
-        font-size: 1.3rem;
+    .navbar {
+        flex-wrap: wrap;
+        /* Allow items to wrap if needed */
     }
 }
+
 
 @keyframes slideOutUp {
     from {
         transform: translateY(0);
         opacity: 1;
     }
+
     to {
         transform: translateY(-100%);
         opacity: 0;
@@ -218,11 +305,15 @@ body {
         transform: translateY(-100%);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
     }
 }
+
+
+
 
 .navbar.hide {
     animation: slideOutUp 0.6s ease forwards;
@@ -231,8 +322,6 @@ body {
 .navbar.show {
     animation: slideInDown 0.6s ease forwards;
 }
-
-
 /* Hero Section Styles */
 .hero {
     background: linear-gradient(45deg, #0077b3, #004d66);
@@ -255,17 +344,54 @@ body {
 }
 
 .cta-button {
-    background-color: #00bcd4;
-    font-size: 1.2rem;
-    padding: 15px 40px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px;
+    transition: transform 0.3s ease;
 }
+
 
 .cta-button:hover {
-    background-color: #008b9f;
+    animation: bounce 0.5s ease-out;
 }
 
+.arrow-icon {
+    color: white;
+    margin: -8px 0;
+}
+
+/* Keyframes for the hover animation */
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Fade-in animation for text */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 /* Events Section Styles */
 .events {
     background-color: #181818;
@@ -607,6 +733,7 @@ body {
 }
 
 .join-us h2 {
+    color: white;
     font-size: 2rem;
     margin-bottom: 20px;
 }
@@ -629,6 +756,318 @@ body {
     background-color: #e67e22;
 }
 
+
+
+
+
+/* Global Styles for the Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #2b2b2b;
+    /* Dark background */
+    color: #fff;
+    /* Light text color */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 700px;
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Close Button */
+.close-button {
+    background: none;
+    border: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: #ff6347;
+}
+
+/* Form Header */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Error Message */
+.error-message {
+    color: #ff6347;
+    font-size: 0.875rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.error-message svg {
+    margin-right: 5px;
+}
+
+/* Form Group */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Flexbox Layout for Form Fields */
+.form-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.form-row .form-group {
+    flex: 1 1;
+    /* Let each field take equal space */
+    min-width: 200px;
+    /* Minimum width to prevent squishing */
+}
+
+/* Label Styles */
+.form-group label {
+    display: flex;
+    font-weight: bold;
+    color: #ddd;
+    /* Lighter label color for dark theme */
+    margin-bottom: 8px;
+    width: 100%;
+    /* Set label width */
+}
+
+/* Input Styles */
+.form-group input,
+.form-group select {
+    width: 90%;
+    /* Text field takes up the remaining space */
+    padding: 10px;
+    border: 1px solid #555;
+    /* Darker border */
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #333;
+    /* Dark background for inputs */
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #007bff;
+}
+
+.form-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    margin: 10px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: #ddd;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.radio-group label:hover {
+    transform: scale(1.05);
+    color: #007bff;
+}
+
+.radio-group input[type="radio"] {
+    -webkit-appearance: none;
+            appearance: none;
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    border: 2px solid #555;
+    border-radius: 50%;
+    background-color: #333;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s, transform 0.3s;
+
+}
+
+.radio-group input[type="radio"]:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+    transform: scale(1.1);
+}
+
+.radio-group input[type="radio"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px #007bff;
+}
+
+.form-group .radio-group {
+    display: flex;
+    gap: 20px;
+    margin-top: 1px;
+}
+
+.form-group .radio-group label {
+    font-weight: normal;
+    color: #ddd;
+    /* Lighter label color */
+}
+.recaptcha-container {
+    flex: 1 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100px; /* Ensure minimum width for CAPTCHA */
+}
+
+/* Submit Button */
+.submit-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.submit-button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+/* ReCAPTCHA Styling */
+.recaptcha-container {
+    margin-top: 15px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 1rem;
+        width: 95%;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+        /*width: 40%;*/
+        /* Adjust width for smaller screens */
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 1rem;
+        padding: 8px;
+        width: 60%;
+        /* Adjust width for smaller screens */
+        transition: border-color 0.3s, box-shadow 0.3s;
+
+    }
+
+    .form-row .form-group {
+        flex: 1 1 100%;
+        /* Full width for mobile */
+    }
+
+    .submit-button {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .radio-group {
+        gap: 10px;
+        justify-content: center;
+    }
+    .radio-group label {
+        font-size: 0.9rem;
+    }
+    .radio-group input[type="radio"] {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content{
+        padding: 0.5rem;
+     }
+    .form-group label {
+        font-size: 0.875rem;
+        width: 35%;
+        /* Further adjust for very small screens */
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 0.9rem;
+        padding: 8px;
+        width: 95%;
+        /* Adjust width for very small screens */
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .submit-button {
+        font-size: 1rem;
+        padding: 12px;
+    }
+}
 /* News Section Styles */
 .news {
     background-color: #181818;
@@ -1391,6 +1830,151 @@ a:hover {
     }
 }
 
+/* Timer Container Styles */
+.timer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    max-width: 600px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #6e45e2, #88d3ce);
+    color: #fff;
+    animation: fadeIn 0.8s ease-out;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Mysterious Timer Styles */
+.mysterious-timer {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: color 0.3s ease;
+}
+
+.mysterious-timer:hover {
+    color: #ffeb3b;
+}
+
+/* Final Countdown Styles */
+.final-countdown {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff5722;
+    animation: pulse 1s infinite;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Exploding Effect */
+.timer-container.exploding {
+    background: radial-gradient(circle, #ff1744, #d50000);
+    animation: explode 0.5s ease-out alternate infinite;
+}
+
+/* Registration Form */
+.register-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    padding: 20px;
+    background-color: #1e1e1e; /* Darker background */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Adjusted for dark mode */
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+}
+
+.register-container h3 {
+    font-size: 1.5rem;
+    color: #fff; /* White text for contrast */
+    text-align: center;
+}
+
+.register-container input {
+    padding: 12px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #555; /* Subtle border for dark mode */
+    background-color: #333; /* Darker input background */
+    color: #fff; /* White text for input */
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.register-container input:focus {
+    outline: none;
+    border-color: #007bff; /* Blue focus border */
+    background-color: #444; /* Slightly lighter focus background */
+}
+
+.register-container button {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #007bff; /* Blue button */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.register-container button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Error Message for Registration Form */
+.register-container .error-message {
+    font-size: 14px;
+    color: #ff6666; /* Red error message for contrast */
+    text-align: center;
+    margin-top: 5px;
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(255, 23, 68, 0.5);
+    }
+    100% {
+        transform: scale(1.05);
+        box-shadow: 0 0 40px rgba(255, 23, 68, 0.8);
+    }
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     .leaderboard-section h2 {
@@ -1412,6 +1996,19 @@ a:hover {
 
     .leaderboard-card p {
         font-size: 0.9rem;
+    }
+
+    .timer-container {
+        padding: 15px;
+        margin: 15px;
+    }
+
+    .mysterious-timer {
+        font-size: 1.5rem;
+    }
+
+    .final-countdown {
+        font-size: 2rem;
     }
 }
 
@@ -1577,7 +2174,7 @@ a:hover {
 }
 
 textarea {
-    width: 100%;
+    width: 95%;
     height: 100px;
     padding: 10px;
     border-radius: 5px;
