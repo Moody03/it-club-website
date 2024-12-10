@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Not Found</title>
-  </head>
-  <body>
-    <script>
-      // Redirect to index.html to allow React Router to handle the route
-      window.location.replace('/it-club-website/');
-    </script>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Not Found</title>
+</head>
+
+<body>
+  <script>
+    // Preserve the original path and redirect to index.html
+    const redirectTo = '/it-club-website/' + location.pathname.replace('/it-club-website/', '');
+    window.location.replace(redirectTo);
+  </script>
+</body>
+
 </html>

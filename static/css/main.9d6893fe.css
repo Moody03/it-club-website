@@ -801,21 +801,56 @@ body {
     }
 }
 
-/* Close Button */
+/* Close button */
 .close-button {
-    background: none;
-    border: none;
     position: absolute;
-    top: 10px;
-    right: 10px;
-    color: #fff;
-    font-size: 20px;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 28px;
     cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+    z-index: 10;
+    color: #fff;  /* Default color of the icon */
 }
 
+/* Hover effect: Change color to red, scale up, and add a subtle pulse effect */
 .close-button:hover {
-    color: #ff6347;
+    color: #ff6347;  /* Change color of the icon to red on hover */
+    transform: scale(1.1);  /* Slightly enlarge the button */
+    opacity: 0.8;  /* Fade effect on hover */
+    animation: pulse 1.2s infinite;  /* Adding pulse animation */
 }
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Focused State */
+.close-button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Soft blue glow on focus */
+}
+
+/* Disabled State */
+.close-button:disabled {
+    cursor: not-allowed;
+    color: #aaa;
+    transform: scale(1);
+    opacity: 0.5;
+}
+
+
 
 /* Form Header */
 h2 {
@@ -867,7 +902,7 @@ h2 {
     color: #ddd;
     /* Lighter label color for dark theme */
     margin-bottom: 8px;
-    width: 100%;
+    
     /* Set label width */
 }
 
@@ -971,7 +1006,7 @@ h2 {
 .submit-button {
     background-color: #007bff;
     color: #fff;
-    padding: 12px 20px;
+    padding: 0.8rem 2rem;
     font-size: 1.1rem;
     border: none;
     border-radius: 5px;
@@ -994,7 +1029,46 @@ h2 {
     margin-top: 15px;
 }
 
+/* Add animated password strength indicator */
+.password-strength {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #ff6347;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.password-strength.visible {
+    opacity: 1;
+}
+
 /* Responsive Styles */
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .modal-content {
+        padding: 1.5rem;
+        width: 90%;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    .form-group label {
+        font-size: 1rem;
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 1rem;
+        padding: 8px;
+    }
+
+    .form-row .form-group {
+        flex: 1 1 45%;
+    }
+}
+
 @media (max-width: 768px) {
     .modal-content {
         padding: 1rem;
@@ -1007,23 +1081,16 @@ h2 {
 
     .form-group label {
         font-size: 0.9rem;
-        /*width: 40%;*/
-        /* Adjust width for smaller screens */
     }
 
     .form-group input,
     .form-group select {
         font-size: 1rem;
         padding: 8px;
-        width: 60%;
-        /* Adjust width for smaller screens */
-        transition: border-color 0.3s, box-shadow 0.3s;
-
     }
 
     .form-row .form-group {
         flex: 1 1 100%;
-        /* Full width for mobile */
     }
 
     .submit-button {
@@ -1035,9 +1102,11 @@ h2 {
         gap: 10px;
         justify-content: center;
     }
+
     .radio-group label {
         font-size: 0.9rem;
     }
+
     .radio-group input[type="radio"] {
         width: 16px;
         height: 16px;
@@ -1045,13 +1114,17 @@ h2 {
 }
 
 @media (max-width: 480px) {
-    .modal-content{
+    .modal-content {
         padding: 0.5rem;
-     }
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+
     .form-group label {
         font-size: 0.875rem;
-        width: 35%;
-        /* Further adjust for very small screens */
+        width: 40%;
     }
 
     .form-group input,
@@ -1059,8 +1132,6 @@ h2 {
         font-size: 0.9rem;
         padding: 8px;
         width: 95%;
-        /* Adjust width for very small screens */
-        transition: border-color 0.3s, box-shadow 0.3s;
     }
 
     .submit-button {
@@ -2294,4 +2365,57 @@ body.dark-theme {
 }
 
 
+
+.contest-content {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+}
+
+.contest-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.contest-content.hidden {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+}
+
+.register-form,
+.contest-page {
+    text-align: center;
+    padding: 20px;
+}
+
+.register-form input {
+    padding: 10px;
+    margin: 10px;
+    width: 80%;
+    max-width: 300px;
+}
+
+.register-form button {
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.register-form button:hover {
+    background: #0056b3;
+}
+
+.questions .question {
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
 
