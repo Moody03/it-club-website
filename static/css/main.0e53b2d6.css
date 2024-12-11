@@ -773,6 +773,7 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    padding: 15px; /*Padding for mobile*/
 }
 
 .modal-content {
@@ -787,6 +788,8 @@ body {
     max-width: 700px;
     position: relative;
     animation: fadeIn 0.3s ease-in-out;
+    max-height: 90vh; /* Prevent modal from being too tall */
+    overflow-y: auto; /*auto scrolling if content is too long*/
 }
 
 @keyframes fadeIn {
@@ -876,8 +879,8 @@ h2 {
 
 /* Form Group */
 .form-group {
-    display: flex;
-    flex-direction: column;
+    flex: 1 1;
+    min-width: 200px;
 }
 
 /* Flexbox Layout for Form Fields */
@@ -893,6 +896,7 @@ h2 {
     /* Let each field take equal space */
     min-width: 200px;
     /* Minimum width to prevent squishing */
+
 }
 
 /* Label Styles */
@@ -909,7 +913,7 @@ h2 {
 /* Input Styles */
 .form-group input,
 .form-group select {
-    width: 90%;
+    width: 100%;
     /* Text field takes up the remaining space */
     padding: 10px;
     border: 1px solid #555;
@@ -921,6 +925,7 @@ h2 {
     /* Dark background for inputs */
     outline: none;
     transition: border-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box; /* Include padding in width calculation */
 
 }
 
@@ -1072,8 +1077,16 @@ h2 {
 @media (max-width: 768px) {
     .modal-content {
         padding: 1rem;
-        width: 95%;
     }
+
+    .form-row {
+        gap: 15px;
+    }
+
+    .form-group {
+        flex: 1 1 100%; /* Stack form groups vertically */
+    }
+
 
     h2 {
         font-size: 1.25rem;
@@ -1094,8 +1107,13 @@ h2 {
     }
 
     .submit-button {
-        font-size: 1rem;
-        padding: 10px;
+        padding: 12px;
+    }
+
+    .recaptcha-container {
+        transform: scale(0.9);
+        transform-origin: center;
+        margin: 10px auto;
     }
 
     .radio-group {
@@ -1113,30 +1131,114 @@ h2 {
     }
 }
 
+/* Responsive styles specifically for smartphones */
 @media (max-width: 480px) {
     .modal-content {
-        padding: 0.5rem;
+        padding: 1rem;
+        margin: 10px;
+        max-height: 85vh;
     }
 
     h2 {
-        font-size: 1rem;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .form-row {
+        gap: 12px;
+        margin-bottom: 12px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
     }
 
     .form-group label {
-        font-size: 0.875rem;
-        width: 40%;
+        font-size: 0.9rem;
+        margin-bottom: 4px;
     }
 
     .form-group input,
     .form-group select {
-        font-size: 0.9rem;
         padding: 8px;
-        width: 95%;
+        font-size: 16px; /* Prevent zoom on iOS */
+        width: 100%;
     }
 
+    /* Adjust radio buttons for better mobile touch targets */
+    .radio-group {
+        gap: 15px;
+        padding: 5px 0;
+    }
+
+    .radio-group label {
+        font-size: 0.9rem;
+    }
+
+    .radio-group input[type="radio"] {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+    }
+
+    /* Make the submit button more touch-friendly */
     .submit-button {
-        font-size: 1rem;
         padding: 12px;
+        font-size: 1rem;
+        margin-top: 1rem;
+        height: auto;
+    }
+
+    /* Adjust reCAPTCHA for mobile */
+    .recaptcha-container {
+        transform: scale(0.85);
+        transform-origin: center;
+        margin: 10px auto;
+    }
+
+    /* Ensure error messages are readable */
+    .error-message {
+        font-size: 0.85rem;
+        padding: 8px;
+        margin-bottom: 12px;
+    }
+
+    /* Adjust close button positioning */
+    .close-button {
+        top: 10px;
+        right: 10px;
+        padding: 8px;
+    }
+}
+
+/* Handle very small screens */
+@media (max-width: 320px) {
+    .modal-content {
+        padding: 0.8rem;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 6px;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    .recaptcha-container {
+        transform: scale(0.8);
+    }
+}
+
+/* Ensure proper scrolling behavior on iOS */
+@supports (-webkit-touch-callout: none) {
+    .modal-overlay {
+        height: -webkit-fill-available;
+    }
+    
+    .modal-content {
+        max-height: -webkit-fill-available;
     }
 }
 /* News Section Styles */
