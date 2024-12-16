@@ -8,6 +8,7 @@
 }
 
 .join-us h2 {
+    color: white;
     font-size: 2rem;
     margin-bottom: 20px;
 }
@@ -29,3 +30,7 @@
 .join-button:hover {
     background-color: #e67e22;
 }
+
+
+
+

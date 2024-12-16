@@ -5,13 +5,64 @@ import '../assets/styles/AboutPage.css';
 function AboutPage() {
     const teamMembers = [
         {
-            name: 'Mohammad Abukhass',
-            role: 'CEO',
+            name: 'جهاد بعيجات',
+            role: 'President',
             linkedin: 'https://www.linkedin.com/in/mohammad-abukhass-1a80b6243/',
             github: 'https://github.com/Moody03',
             portfolio: 'https://github.com/Moody03',
             icon: 'fa-laptop-code'
         },
+
+        {
+            name: 'Mohammad Abukhass',
+            role: 'Vice President',
+            linkedin: 'https://www.linkedin.com/in/mohammad-abukhass-1a80b6243/',
+            github: 'https://github.com/Moody03',
+            portfolio: 'https://github.com/Moody03',
+            icon: 'fa-laptop-code'
+        },
+        {
+            name: 'هبة الخراربة',
+            role: 'Secretary',
+            linkedin: 'https://www.linkedin.com/',
+            github: 'https://github.com/',
+            portfolio: 'https://github.com/',
+            icon: 'fa-laptop-code'
+        },
+        {
+            name: 'Mohammad Nadal',
+            role: 'Member',
+            linkedin: 'https://www.linkedin.com/',
+            github: 'https://github.com/',
+            portfolio: 'https://github.com/',
+            icon: 'fa-laptop-code'
+        },
+
+        {
+            name: 'Omar Almalhe',
+            role: 'Member',
+            linkedin: 'https://www.linkedin.com/in/',
+            github: 'https://github.com/',
+            portfolio: 'https://github.com/',
+            icon: 'fa-laptop-code'
+        },
+
+        {
+            name: 'حمزة الفاعوري',
+            role: 'Member',
+            linkedin: 'https://www.linkedin.com/',
+            github: 'https://github.com/',
+            portfolio: 'https://github.com/',
+            icon: 'fa-laptop-code'
+        },
+        {
+            name: 'Ali Shibli',
+            role: 'Member',
+            linkedin: 'https://www.linkedin.com/',
+            github: 'https://github.com/',
+            portfolio: 'https://github.com/',
+            icon: 'fa-laptop-code'
+        }
         // Add more team members as needed
     ];
 

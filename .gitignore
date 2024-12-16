@@ -8,11 +8,13 @@
 # testing
 /coverage
 
-# Environment variables (Firebase keys, etc.)
+
 .env
 
 # production
 /build
+
+/src
 
 # misc
 .DS_Store
