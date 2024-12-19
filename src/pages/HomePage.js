@@ -7,6 +7,7 @@ import NewsSection from '../components/NewsSection';
 import '../assets/styles/HomePage.css';
 import FAQIcon from '../components/AI_Message/FAQIcon';
 import ChatBot from '../components/AI_Message/ChatBot';
+import Footer from '../components/Footer';
 
 function HomePage() {
     const [chatOpen, setChatOpen] = useState(false);
@@ -26,6 +27,9 @@ function HomePage() {
                 {chatOpen && <ChatBot onClose={() => setChatOpen(false)} />}
                 <FAQIcon onClick={handleFAQClick} />
             </>
+
+
+            <Footer />
            
         </div>
     );

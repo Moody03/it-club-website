@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# IT Club Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the IT Club website! This project serves as a hub for club members and visitors to explore various aspects of the club, including ongoing projects, events, and updates related to technology.
 
-## Available Scripts
+The website is built using **React**, **GitHub Pages**, **Firebase**, and other modern web technologies to provide an interactive and engaging user experience.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [About](#about)
+- [Tech Stack](#tech-stack)
+- [Pages](#pages)
+  - [Home](#home)
+  - [About](#about-page)
+  - [Project](#project-page)
+  - [Contact](#contact-page)
+  - [Movie/Series](#movieseries-page)
+- [Security Considerations](#security-considerations)
+- [Contributing](#contributing)
+- [License](#license)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## About
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This website was created to serve the IT club’s community. It includes various sections to provide information about the club, ongoing and past projects, and media recommendations, such as movies and series related to technology.
 
-### `npm test`
+## Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React**: A JavaScript library for building user interfaces.
+- **GitHub Pages**: Hosting service for static websites. The website is deployed on GitHub Pages for easy access and fast delivery.
+- **Firebase**: A platform for backend services like authentication, hosting, and real-time database.
+- **HTML/CSS**: For styling and structure.
+- **JavaScript**: For frontend interactivity and logic.
+- **React Router**: For handling navigation between different pages of the website.
 
-### `npm run build`
+## Pages
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Home
+The homepage serves as an introduction to the IT Club, showcasing featured content and the latest updates. It includes navigation to other sections of the site.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### About Page
+Provides detailed information about the IT Club, including its history, mission, and values. You can also learn about the team members and key events.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Project Page
+Displays ongoing and completed projects of the IT Club. Each project has a detailed description and any relevant media, including links to the project's repository or further resources.
 
-### `npm run eject`
+### Contact Page
+Allows users to contact the IT Club for inquiries. It includes a contact form connected to Firebase for submissions and a section with the club's contact details (email, phone, etc.).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Movie/Series Page
+Features a list of recommended movies and series related to technology, IT, and innovation. This page also allows users to submit their own recommendations.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Security Considerations
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To ensure the website is secure, we’ve implemented the following best practices:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. **Authentication**: We use **Firebase Authentication** to handle user sign-ins and ensure secure login mechanisms.
+   
+2. **HTTPS**: The website is hosted on **GitHub Pages** with **SSL encryption**, ensuring secure communication between users and the website.
 
-## Learn More
+3. **Input Validation**: All forms (e.g., the contact form) perform input validation both on the client-side and server-side to avoid malicious data submissions.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. **Role-Based Access Control**: We use Firebase Firestore Security Rules to control access to sensitive data. Only authorized users can modify content on the website.
+   
+5. **Password Management**: We recommend strong passwords for user accounts. Passwords are stored securely using Firebase Authentication’s built-in hashing mechanism.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+6. **CORS Protection**: We have configured Firebase Hosting and backend services to prevent Cross-Origin Resource Sharing (CORS) issues and unauthorized requests.
 
-### Code Splitting
+7. **Regular Security Audits**: The project is subject to regular security audits, including dependency checks for vulnerabilities.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Contributing
 
-### Analyzing the Bundle Size
+We welcome contributions from the community! Here’s how you can get involved:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Reporting Bugs
+If you encounter any bugs or issues, please report them by opening an issue in the [issues section](https://github.com/Moody03/it-club-website/issues).
 
-### Making a Progressive Web App
+### How to Contribute
+1. Fork this repository and create a new branch for your changes.
+2. Make your changes and add meaningful commits.
+3. Submit a pull request (PR) with a clear explanation of the changes.
+4. Ensure that all tests pass and that no security vulnerabilities are introduced.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Code of Conduct
+We ask that all contributors follow our [Code of Conduct](CODE_OF_CONDUCT.md), treating each other with respect and professionalism.
 
-### Advanced Configuration
+### Development Guidelines
+- Write clean, maintainable, and well-documented code.
+- Ensure that your code passes any pre-configured linters.
+- Provide unit tests where applicable.
+- Test your changes locally before submitting the PR.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Security Guidelines for Contributors
+- Ensure that your code does not expose sensitive data.
+- Avoid hardcoding credentials, API keys, or other sensitive information.
+- If you spot a security vulnerability, please report it privately by emailing [security@itclub.com](mailto:security@itclub.com) instead of disclosing it publicly.
 
-### Deployment
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Happy coding, and thank you for contributing to the IT Club website!**
