@@ -392,6 +392,178 @@ body {
         transform: translateY(0);
     }
 }
+.registered-count {
+    background: linear-gradient(45deg, #005580, #003366);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15),
+                inset 0 0 50px rgba(255, 255, 255, 0.1);
+    margin: 30px auto;
+    max-width: 450px;
+    text-align: center;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+  }
+  
+  /* Glassmorphism effect */
+  .registered-count::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 30%,
+      transparent 70%
+    );
+    transform: rotate(30deg);
+    animation: shimmer 8s infinite linear;
+  }
+  
+  /* Hover effects */
+  .registered-count:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2),
+                inset 0 0 70px rgba(255, 255, 255, 0.15);
+  }
+  
+  .registered-count:hover::after {
+    animation: pulse 1.5s infinite;
+  }
+  
+  /* Number display */
+  .registered-count p {
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+    letter-spacing: 1px;
+    animation: countFadeIn 1.2s ease-out;
+  }
+  
+  /* Loading state with pulse animation */
+  .registered-count p:first-child {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.4rem;
+    animation: pulse 1.5s infinite;
+  }
+  
+  /* Decorative elements */
+  .registered-count::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    pointer-events: none;
+  }
+  
+  /* Animations */
+  @keyframes countFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(30px) scale(0.9);
+      filter: blur(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+  
+  @keyframes shimmer {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Floating particles effect */
+  .registered-count .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: float 3s infinite ease-in-out;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+    }
+    50% {
+      transform: translateY(-20px) translateX(10px);
+    }
+  }
+  
+  /* Add particles programmatically with JavaScript */
+  .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+  .particle:nth-child(2) { left: 80%; top: 60%; animation-delay: 0.3s; }
+  .particle:nth-child(3) { left: 30%; top: 70%; animation-delay: 0.6s; }
+  .particle:nth-child(4) { left: 70%; top: 30%; animation-delay: 0.9s; }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    .registered-count {
+      margin: 20px;
+      padding: 30px;
+      font-size: 1.6rem;
+    }
+    
+    .registered-count p {
+      font-size: 1.8rem;
+    }
+  }
+  
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .registered-count {
+      background: linear-gradient(45deg, #006699, #004d80);
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3),
+                  inset 0 0 50px rgba(255, 255, 255, 0.05);
+    }
+  }
+  
+  /* Hover state focus ring for accessibility */
+  .registered-count:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px #0077b3, 0 8px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Optional: Add this JavaScript to create floating particles */
+  
+  
+  
 /* Events Section Styles */
 .events {
     background-color: #181818;
