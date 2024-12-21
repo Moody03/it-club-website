@@ -1,0 +1,288 @@
+/* Navbar Container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #1c1c1c;
+    color: white;
+    transition: transfrom 0.4s ease, opacity 0.4s ease, background-color 0.3s ease;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    gap: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-logo {
+    height: 80px;  /* Adjust size as needed */
+    width: auto;
+    transition: transform 0.3s ease, filter 0.3s ease;
+ }
+ 
+ .navbar-logo:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+ }
+ 
+
+.menu-toggle {
+    position: absolute;
+    /* Position it relative to the navbar */
+    top: 2.0rem;
+    /* Adjust the distance from the top */
+    right: 1rem;
+    /* Adjust the distance from the right */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    visibility: hidden;
+    z-index: 2000;
+    /* Ensure it stays on top of other elements */
+}
+
+.menu-toggle.active {
+    transform: rotate(90deg);
+}
+
+
+/* Navbar Brand */
+.navbar-brand h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #00bcd4;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand h1:hover {
+    color: #0097a7;
+}
+
+/* Navbar Links Container */
+.navbar-links {
+    display: flex;
+    /* Keep items in a row */
+    flex-direction: row;
+    gap: 2rem;
+    /* Add space between links */
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+/* Mobile menu hidden initially */
+.navbar-links.open {
+    flex-direction: row;
+    max-height: 100vh;
+    /* Allow dropdown on mobile */
+}
+
+/* Navbar Link */
+.navbar-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 3rem;
+    /* Icon width */
+    height: 3rem;
+    /* Icon height */
+    overflow: hidden;
+    /* Hide text initially */
+    color: white;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+
+/* Hidden Text Styling */
+.navbar-link span {
+    position: absolute;
+    left: 4rem;
+    /* Place text outside the icon to the right */
+    white-space: nowrap;
+    font-size: 1rem;
+    color: #00bcd4;
+    letter-spacing: 1px;
+    opacity: 0;
+    /* Initially invisible */
+    transform: translateX(-20px);
+    /* Slide text slightly left */
+    transition: all 0.3s ease;
+    background-color: #1c1c1c;
+    /* Same as navbar background */
+    padding: 0.2rem 0.5rem;
+    /* Add padding around the text */
+    border-radius: 0.3rem;
+    /* Rounded corners for better visibility */
+    z-index: 2;
+    /* Ensure it appears above other elements */
+}
+
+/* Hover Effect */
+.navbar-link:hover span {
+    opacity: 1;
+    /* Make text visible */
+    transform: translateX(0);
+    /* Slide text into position */
+}
+
+/* Icon Hover Effect */
+.navbar-link:hover svg {
+    transform: scale(1.2);
+    color: #00bcd4;
+}
+
+
+.navbar-link:hover {
+    color: #00bcd4;
+    transform: scale(1.05);
+}
+
+/* Icon Styling */
+.navbar-link svg {
+    font-size: 1.5rem;
+    z-index: 1;
+    /* Ensure icon is above the animated text */
+    transition: transform 0.3s ease;
+}
+
+/* Navbar Icons */
+.navbar-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar-icons svg {
+    font-size: 1.5rem;
+    color: white;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.navbar-icons svg:hover {
+    transform: scale(1.2);
+    color: #00bcd4;
+}
+
+/* Show Navbar */
+.navbar.show {
+    transform: translateY(0);
+    /* Fully visible */
+    opacity: 1;
+}
+
+/* Hide Navbar */
+.navbar.hide {
+    transform: translateY(-100%);
+    /* Move out of view */
+    opacity: 0;
+    /* Fade out */
+}
+
+/* Animation for smooth scrolling */
+@keyframes slideDown {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Letter by Letter Animation */
+@keyframes revealText {
+    from {
+        clip-path: inset(0 100% 0 0);
+        /* Hide all letters */
+    }
+
+    to {
+        clip-path: inset(0 0 0 0);
+        /* Reveal all letters */
+    }
+}
+
+.navbar {
+    animation: slideDown 0.6s ease-out;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+
+    .navbar-links {
+        flex-direction: row;
+        /* Keep links in a row */
+        justify-content: space-evenly;
+        /* Distribute links evenly */
+        max-height: none;
+        /* Remove height restrictions */
+        visibility: hidden;
+        opacity: 1;
+        width: 100%;
+        /* Make it stretch across the navbar width */
+    }
+
+    .navbar-links.open {
+        max-height: none;
+        /* Allow full display */
+        visibility: visible;
+        opacity: 1;
+    }
+    
+    .menu-toggle {
+        visibility: visible;
+    }
+
+    .navbar-icons {
+        display: none;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        /* Allow items to wrap if needed */
+    }
+}
+
+
+@keyframes slideOutUp {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+
+
+.navbar.hide {
+    animation: slideOutUp 0.6s ease forwards;
+}
+
+.navbar.show {
+    animation: slideInDown 0.6s ease forwards;
+}

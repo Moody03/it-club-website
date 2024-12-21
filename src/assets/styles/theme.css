@@ -1,0 +1,13 @@
+/* src/ThemeToggle.css */
+.theme-toggle {
+    font-size: 1.5rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--text-color-light);
+    transition: color var(--transition-duration);
+}
+
+.theme-toggle:hover {
+    color: var(--accent-color);
+}

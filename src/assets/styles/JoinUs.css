@@ -1,0 +1,36 @@
+/* Join Us Section Styles */
+.join-us {
+    background-color: #0099cc;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.join-us h2 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.join-us p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.join-button {
+    background-color: #f39c12;
+    color: white;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.join-button:hover {
+    background-color: #e67e22;
+}
+
+
+
+

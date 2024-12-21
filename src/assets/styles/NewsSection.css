@@ -1,0 +1,98 @@
+/* News Section Styles */
+.news {
+    background-color: #181818;
+    padding: 50px 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 50px;
+}
+
+.news h2 {
+    font-size: 2.5rem;
+    color: #00bcd4;
+    margin-bottom: 40px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.news h2 svg {
+    color: #00bcd4;
+    font-size: 2rem;
+}
+
+/* News Card Styles */
+.news-card {
+    background-color: #262626;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.news-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.news-card h3 {
+    color: #00bcd4;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.news-card h3 svg {
+    color: #00bcd4;
+    font-size: 1.5rem;
+}
+
+.news-card p {
+    font-size: 1rem;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+.news-card a {
+    color: #00bcd4;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.news-card a:hover {
+    color: #0099cc;
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .news h2 {
+        font-size: 2rem;
+    }
+
+    .news-card {
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+
+    .news-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .news-card p {
+        font-size: 0.9rem;
+    }
+
+    .news-card a {
+        font-size: 1rem;
+    }
+}

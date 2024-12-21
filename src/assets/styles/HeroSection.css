@@ -1,0 +1,70 @@
+/* Hero Section Styles */
+.hero {
+    background: linear-gradient(45deg, #0077b3, #004d66);
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    border-radius: 10px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    animation: fadeIn 1s ease-out;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    animation: fadeIn 1s ease-out;
+}
+
+.cta-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px;
+    transition: transform 0.3s ease;
+}
+
+
+.cta-button:hover {
+    animation: bounce 0.5s ease-out;
+}
+
+.arrow-icon {
+    color: white;
+    margin: -8px 0;
+}
+
+/* Keyframes for the hover animation */
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Fade-in animation for text */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,239 @@
+/* Events Section Styles */
+.events {
+    background-color: #181818;
+    padding: 50px 20px;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+}
+
+.events h2 {
+    font-size: 2.5rem;
+    color: #00bcd4;
+    margin-bottom: 40px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.events h2 svg {
+    color: #00bcd4;
+    font-size: 2rem;
+}
+
+/* Event Card Styles */
+.event-card {
+    background-color: #262626;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 0.5s forwards; /* Smooth fade-in and slide-up animation */
+}
+
+.event-card h3 {
+    color: #00bcd4;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.event-card p {
+    font-size: 1rem;
+    color: #ddd;
+    margin-bottom: 15px;
+}
+
+.event-card .event-date {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    color: #bbb;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* View All Events Link */
+.view-all-events {
+    display: inline-block;
+    margin-top: 20px;
+    color: #00bcd4;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.view-all-events:hover {
+    color: #0099cc;
+    text-decoration: underline;
+}
+
+.live-button {
+    background-color: #d9534f;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.live-button:hover {
+    background-color: #c9302c;
+}
+
+/* Overlay styling */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Video container */
+.video-container {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    aspect-ratio: 16 / 9; /* Ensure the video retains its aspect ratio */
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Embedded iframe styling */
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Close button styling */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    z-index: 1001;
+}
+
+.close-button:hover {
+    background: #ff1a1a;
+}
+
+
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* Close button styling */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    z-index: 1001;
+}
+
+.close-button:hover {
+    background: #ff1a1a;
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .events h2 {
+        font-size: 2rem;
+    }
+
+    .event-card {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .event-card h3 {
+        font-size: 1.6rem;
+    }
+
+    .event-card p {
+        font-size: 0.9rem;
+    }
+
+    .event-card .event-date {
+        font-size: 1rem;
+    }
+
+    .view-all-events {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,36 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Hero section styles */
+.hero {
+  text-align: center;
+  padding: 2rem;
+}
+
+.cta-button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.events, .projects {
+  padding: 2rem;
+}
+
+.event-card, .project-card {
+  padding: 1rem;
+  background: #f4f4f4;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}

@@ -1,0 +1,22 @@
+/* src/App.css or src/Navbar.css */
+
+:root {
+  --primary-color: #1e90ff;
+  /* Vibrant blue for active and hover states */
+  --secondary-color: #23272a;
+  /* Darker shade for background elements */
+  --accent-color: #f39c12;
+  /* Bright color for CTAs */
+  --text-color-light: #ffffff;
+  --text-color-dark: #333333;
+  --bg-color-light: #f4f4f9;
+  --bg-color-dark: #1a1a1a;
+  --transition-duration: 0.3s;
+}
+
+body.dark-theme {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-light);
+}
+
+

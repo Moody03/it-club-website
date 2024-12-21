@@ -1,0 +1,137 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+/* Clean layout with smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+section {
+    padding: 50px 20px;
+    margin-bottom: 50px;
+}
+
+h1, h2, h3 {
+    font-family: 'Roboto', sans-serif;
+    color: #f0f0f0;
+}
+
+button {
+    background-color: #0099cc;
+    color: white;
+    padding: 12px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0077b3;
+}
+
+.home-page {
+    background-color: #121212;
+}
+
+.cta-button, .join-button {
+    font-weight: bold;
+}
+
+/* Smooth animations for scroll */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.hero, .events, .projects, .news, .join-us {
+    animation: fadeIn 1s ease-out;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.hero {
+    background: #003366;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero .cta-button {
+    background-color: #0099cc;
+    padding: 15px 40px;
+    font-size: 18px;
+}
+
+h3 {
+    color: #0099cc;
+}
+
+/* Card Hover Animation */
+.project-card, .event-card, .news-card {
+    background-color: #1f1f1f;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover, .event-card:hover, .news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+a {
+    color: #0099cc;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Specific Section Styles */
+.events h2, .projects h2, .news h2, .join-us h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.projects .project-card, .events .event-card, .news .news-card {
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .cta-button, .join-button {
+        padding: 10px 20px;
+    }
+}

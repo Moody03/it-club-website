@@ -1,0 +1,427 @@
+/* General Leaderboard Section */
+.leaderboard-section {
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    animation: fadeIn 1s ease-out;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Light Theme */
+.light-theme .leaderboard-section {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.light-theme .leaderboard-card {
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.light-theme .leaderboard-filter select,
+.light-theme .leaderboard-filter input {
+    background-color: #f1f1f1;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+/* Dark Theme */
+.dark-theme .leaderboard-section {
+    background-color: #1e1e1e;
+    color: #ddd;
+}
+
+.dark-theme .leaderboard-card {
+    background-color: #333;
+    color: #ddd;
+}
+
+.dark-theme .leaderboard-filter select,
+.dark-theme .leaderboard-filter input {
+    background-color: #262626;
+    color: #ddd;
+    border: 1px solid #444;
+}
+
+/* Header Styles */
+.leaderboard-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: inherit;
+}
+
+/* Filter Controls */
+.leaderboard-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.leaderboard-filter select,
+.leaderboard-filter input {
+    padding: 12px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    min-width: 180px;
+    box-sizing: border-box;
+}
+
+.leaderboard-filter select:hover,
+.leaderboard-filter input:hover {
+    transform: scale(1.05);
+}
+
+/* Leaderboard Cards */
+.leaderboard-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.leaderboard-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 0.5s forwards;
+    width: 100%;
+    max-width: 600px;
+}
+
+.leaderboard-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.rank {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+
+.rank-range {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap; /* Allow input fields to wrap on smaller screens */
+    justify-content: center; /* Center the fields */
+}
+
+.rank-range input {
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    height: 40px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.rank-range input:focus {
+    border-color: #4d90fe;
+    outline: none;
+    background-color: #ffffff;
+}
+
+.rank-range input::placeholder {
+    color: #888;
+}
+
+.rank-range input[type="number"] {
+    -moz-appearance: textfield; /* Hide arrows in Firefox */
+    -webkit-appearance: none; /* Hide arrows in WebKit browsers (Chrome, Safari) */
+    appearance: none; /* Standard property for hiding the number input arrows */
+}
+
+.rank-range input[type="number"]::-webkit-outer-spin-button,
+.rank-range input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.rank-range .error-message {
+    font-size: 14px;
+    color: red;
+    margin-top: 5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .rank-range {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .rank-range input {
+        width: 100%; /* Make inputs take full width on smaller screens */
+        margin-bottom: 10px; /* Add spacing between inputs */
+    }
+}
+
+@media (max-width: 480px) {
+    .rank-range input {
+        font-size: 14px; /* Reduce font size for very small screens */
+        padding: 10px 12px; /* Adjust padding */
+    }
+}
+
+
+
+.leaderboard-card h3 {
+    font-size: 1.3rem;
+    flex: 1;
+    text-align: center;
+    margin: 0;
+}
+
+.leaderboard-card p {
+    font-size: 1.1rem;
+    color: inherit;
+}
+
+/* Reset Filters Button */
+.reset-button {
+    background-color: #ff5c5c;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+.reset-button:hover {
+    background-color: #e04c4c;
+}
+
+.filter-type-select {
+    padding: 12px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    min-width: 180px;
+    box-sizing: border-box;
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Timer Container Styles */
+.timer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    max-width: 600px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #6e45e2, #88d3ce);
+    color: #fff;
+    animation: fadeIn 0.8s ease-out;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Mysterious Timer Styles */
+.mysterious-timer {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transition: color 0.3s ease;
+}
+
+.mysterious-timer:hover {
+    color: #ffeb3b;
+}
+
+/* Final Countdown Styles */
+.final-countdown {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff5722;
+    animation: pulse 1s infinite;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Exploding Effect */
+.timer-container.exploding {
+    background: radial-gradient(circle, #ff1744, #d50000);
+    animation: explode 0.5s ease-out alternate infinite;
+}
+
+/* Registration Form */
+.register-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    padding: 20px;
+    background-color: #1e1e1e; /* Darker background */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Adjusted for dark mode */
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+}
+
+.register-container h3 {
+    font-size: 1.5rem;
+    color: #fff; /* White text for contrast */
+    text-align: center;
+}
+
+.register-container input {
+    padding: 12px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #555; /* Subtle border for dark mode */
+    background-color: #333; /* Darker input background */
+    color: #fff; /* White text for input */
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.register-container input:focus {
+    outline: none;
+    border-color: #007bff; /* Blue focus border */
+    background-color: #444; /* Slightly lighter focus background */
+}
+
+.register-container button {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #007bff; /* Blue button */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.register-container button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Error Message for Registration Form */
+.register-container .error-message {
+    font-size: 14px;
+    color: #ff6666; /* Red error message for contrast */
+    text-align: center;
+    margin-top: 5px;
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(255, 23, 68, 0.5);
+    }
+    100% {
+        transform: scale(1.05);
+        box-shadow: 0 0 40px rgba(255, 23, 68, 0.8);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .leaderboard-section h2 {
+        font-size: 2rem;
+    }
+
+    .leaderboard-filter select,
+    .leaderboard-filter input {
+        min-width: 140px;
+    }
+
+    .leaderboard-card {
+        padding: 15px;
+    }
+
+    .leaderboard-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .leaderboard-card p {
+        font-size: 0.9rem;
+    }
+
+    .timer-container {
+        padding: 15px;
+        margin: 15px;
+    }
+
+    .mysterious-timer {
+        font-size: 1.5rem;
+    }
+
+    .final-countdown {
+        font-size: 2rem;
+    }
+}
